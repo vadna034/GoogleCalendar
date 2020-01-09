@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="FormHandler.js"></script>
+    <title>UMN Calendar</title>
+    <h1>Calendar Generator</h1>
+    <body>
+        <div>
+            <!-- Subject,Start Date,Start Time,End Date,End Time,All Day Event\n" --
+                 Remove the values and selected from the form -->
+                
+                <form id="sch-form"> 
+                    <label>Weekday:</label>
+                    <select name="weekday" id="weekday" required>
+                        <option value="choice" disabled hidden>Select</option>
+                        <option value="Monday" selected>Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select> 
+                <br>
+                <br>
+                    <label>Subject:</label>
+                    <input type="text" name="subject" id="subject" value = "math" placeholder="Subject" required/>
+                <br>
+                <br>
+                    <label> Start Time:</label>
+                    <input type="text" name="start-time" id="start-time" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))" value = "11:00 AM" placeholder="$$:$$ AM" required/> 
+                <br>
+                <br>
+                    <label> End Time:</label>
+                    <input type="text" name="end-time" id="end-time" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))" value = "12:00 AM" placeholder="$$:$$ PM" required/>
+                <br>
+                <br>
+                    <label> </label>
+                    <input type="button" value="Add Event" onclick="myFunction()">
+                    <input type="button" value="Generate CSV" onclick="generateCSV()">
+
+                <br><br><br><br>
+                    <p>Current Schedule!</p>
+                    <div id='schedule'>Subject, Weekday, Start Time, End Time</div>
+                    
+
+              </form> 
+        </div>
+
+    </body>
+</html>
