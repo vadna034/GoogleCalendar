@@ -22,25 +22,27 @@ function myFunction() {
     input += inText[3].value;
     input += '\n';
     
+    id = "Event" + index;
 
     var schItem = {
       Weekday: inText[0].value,
       Subject: inText[1].value,
       StartTime: inText[2].value,
-      EndTime: inText[3].value
+      EndTime: inText[3].value,
+      ID: id
     };
 
-    inputs[index] = schItem;
+    inputs.push(schItem);
     index++;
 
-    document.getElementById('schedule').innerHTML += '<div><p> Event ' + index + ': ' + input + '<input type="button" value="Delete" onclick="delFunction()"></p></div>';
+    document.getElementById('schedule').innerHTML += '<p id=' + id + '> Event: ' + input + '<input type="button" value="Delete" onclick="delFunction(\'' + id + '\')"></p>';
   }
 
 
 function generateCSV() {
   csvString = "data:text/csv;charset=utf-8," + "Subject, Start Date, Start Time, End Date, End Time, All Day Event\n";
   
-  for(i=0; i<index; i++){
+  for(i=0; i<inputs.length; i++){
     var subject = inputs[i].Subject;
     var startTime = inputs[i].StartTime;
     var endTime = inputs[i].EndTime;
@@ -55,7 +57,7 @@ function generateCSV() {
         dates = Wednesdays;
       case 'Thursday':
         dates = Thursdays;
-      case 'Friday':
+      case 'Friday':inputs
         dates = Fridays;
       case 'Saturday':
         dates = Saturdays;
@@ -74,4 +76,16 @@ function generateCSV() {
 }
 //Need to add dates for the thingy, and need to add a system for writing text to a file. Otherwise, this baby is just about dont :3
 
+function delFunction(inString){
+  for(i=0; i<inputs.length; i++){
+    if(inputs[i].ID == inString){
+      inputs.splice(i,1);
+      break;
+    }
+  }
+  
 
+ var elem = document.getElementById(inString);
+ elem.parentNode.removeChild(elem);
+
+}
