@@ -10,32 +10,46 @@
                  Remove the values and selected from the form -->
                 
                 <form id="sch-form"> 
-                    <label>Weekday:</label>
-                    <select name="weekday" id="weekday" required>
-                        <option value="choice" disabled hidden>Select</option>
-                        <option value="Monday" selected>Monday</option>
-                        <option value="Tuesday">Tuesday</option>
-                        <option value="Wednesday">Wednesday</option>
-                        <option value="Thursday">Thursday</option>
-                        <option value="Friday">Friday</option>
-                        <option value="Saturday">Saturday</option>
-                        <option value="Sunday">Sunday</option>
-                    </select> 
+                    <input type="checkbox" name="Weekday" value="Monday" id="Monday"> 
+                    <label for = "Monday" name = "Weekday">Monday</label>
+                    <br>
+                    <input type="checkbox" name="Weekday" value="Tuesday" id="Tuesday">
+                    <label for = "Tuesday" name = "Weekday">Tuesday</label>
+                    
+                    <br>
+                    <input type="checkbox" name="Weekday" value="Wednesday" id="Wednesday">
+                    <label for = "Wednesday" name = "Weekday">Wednesday</label>
+                    
+                    <br> 
+                    <input type="checkbox" name="Weekday" value="Thursday" id="Thursday">
+                    <label for = "Thursday" name = "Weekday">Thursday</label>
+                    
+                    <br> 
+                    <input type="checkbox" name="Weekday" value="Friday" id="Friday">
+                    <label for = "Friday" name = "Weekday">Friday</label>
+                   
+                    <br> 
+                    <input type="checkbox" name="Weekday" value="Saturday" id="Saturday">
+                    <label for = "Saturday" name = "Weekday">Saturday</label>
+                    
+                    <br> 
+                    <input type="checkbox" name="Weekday" value="Sunday" id="Sunday">
+                    <label for = "Sunday" name = "Weekday">Sunday</label>
+                    
                 <br>
                 <br>
-                    <label>Subject:</label>
+                    <label style="font-weight: bold">Subject:</label>
                     <input type="text" name="subject" id="subject" placeholder="Subject" required/>
                 <br>
                 <br>
-                    <label> Start Time:</label>
+                    <label style="font-weight: bold"> Start Time:</label>
                     <input type="text" name="start-time" id="start-time" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))" placeholder="$$:$$ AM" required/> 
                 <br>
                 <br>
-                    <label> End Time:</label>
+                    <label style="font-weight: bold"> End Time:</label>
                     <input type="text" name="end-time" id="end-time" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))" placeholder="$$:$$ PM" required/>
                 <br>
                 <br>
-                    <label> </label>
                     <input type="button" value="Add Event" onclick="addEvent()">
                     <input type="button" value="Generate CSV" onclick="generateCSV()">
 
@@ -43,41 +57,18 @@
               </form> 
         </div>
 
-        <h1 style="text-align:center;">Current Schedule</h1>
+        <h1 style="text-align:center">Current Schedule</h1>
 
         <table style="text-align:center;width:100%" id="schTable">
             <tr>
-                <th>Subject</th>
                 <th>Weekday</th>
+                <th>Subject</th>
                 <th>Start Time</th>
                 <th>End Time</th> 
-                <th>Delete?!</th>
+                <th>Delete?</th>
             </tr>
         </table>
     
 
     </body>
 </html>
-
-<!-- 
-<table style="width:100%">
-    <col align="left">
-    <col align="left">
-    <col align="right">
-    <tr>
-      <th>ISBN</th>
-      <th>Title</th>
-      <th>Price</th>
-    </tr>
-    <tr>
-      <td>3476896</td>
-      <td>My first HTML</td>
-      <td>$53</td>
-    </tr>
-    <tr>
-      <td>2489604</td>
-      <td>My first CSS</td>
-      <td>$47</td>
-    </tr>
-  </table>
-  -->

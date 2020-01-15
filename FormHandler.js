@@ -15,40 +15,42 @@ const Sundays = ['1/26/2020', '2/2/2020','2/9/2020','2/16/2020','2/23/2020','2/3
 function addEvent() {
     var form = document.getElementById("sch-form");
     var inText = form.elements;
-    var itemID = 'input' + index;
     
-
-    var schItem = {
-      Weekday: inText[0].value,
-      Subject: inText[1].value,
-      StartTime: inText[2].value,
-      EndTime: inText[3].value,
-      ID: itemID
-    };
-
-    inputs.push(schItem);
-    index++;
-
-    console.log("here");
-
-    let table = document.getElementById('schTable');
-    let row = table.insertRow(-1);
-    row.id = itemID;
     
-    console.log("Got the table");
+    for(i=0; i<7; i++){
 
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-
-    cell1.innerHTML = schItem.Weekday;
-    cell2.innerHTML = schItem.Subject;
-    cell3.innerHTML = schItem.StartTime;
-    cell4.innerHTML = schItem.EndTime;
-    cell5.innerHTML = '<input type="button" value="Delete" onclick="delFunction(\'' + itemID + '\')">';
-
+      if(form.elements[i].checked == true){
+        var itemID = 'input' + index;
+        
+        
+        var schItem = {
+          Weekday: inText[i].value,
+          Subject: inText[7].value,
+          StartTime: inText[8].value,
+          EndTime: inText[9].value,
+          ID: itemID
+        };
+    
+        inputs.push(schItem);
+        index++;
+    
+        var table = document.getElementById('schTable');
+        var row = table.insertRow(-1);
+        row.id = itemID;
+    
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+    
+        cell2.innerHTML = schItem.Subject;
+        cell1.innerHTML = schItem.Weekday;
+        cell3.innerHTML = schItem.StartTime;
+        cell4.innerHTML = schItem.EndTime;
+        cell5.innerHTML = '<input type="button" value="Delete" onclick="delFunction(\'' + itemID + '\')">';
+      }
+    }
   }
 
 
