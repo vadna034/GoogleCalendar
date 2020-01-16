@@ -51,6 +51,14 @@
                     <input type="text" name="end-time" id="end-time" pattern="\b((1[0-2]|0?[1-9]):([0-5][0-9]) ([AaPp][Mm]))" placeholder="$$:$$ PM" required/>
                 <br>
                 <br>
+                    <label style="font-weight: bold"> Location:</label>
+                    <input type="text" name="location" id="location" placeholder="Optional">
+                <br>
+                <br>
+                    <label style="font-weight:bold">Description:</label>
+                    <input type="text" name="description" id="description" placeholder="Optional">
+                <br>
+                <br>
                     <input type="button" value="Add Event" onclick="addEvent()">
                     <input type="button" value="Generate CSV" onclick="generateCSV()">
 
@@ -66,6 +74,8 @@
                 <th>Subject</th>
                 <th>Start Time</th>
                 <th>End Time</th> 
+                <th>Location</th>
+                <th>Description</th>
                 <th>Delete?</th>
             </tr>
         </table>

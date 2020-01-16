@@ -28,6 +28,8 @@ function addEvent() {
           Subject: inText[7].value,
           StartTime: inText[8].value,
           EndTime: inText[9].value,
+          Location: inText[10].value,
+          Description: inText[11].value,
           ID: itemID
         };
     
@@ -43,24 +45,30 @@ function addEvent() {
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
     
-        cell2.innerHTML = schItem.Subject;
         cell1.innerHTML = schItem.Weekday;
+        cell2.innerHTML = schItem.Subject;
         cell3.innerHTML = schItem.StartTime;
         cell4.innerHTML = schItem.EndTime;
-        cell5.innerHTML = '<input type="button" value="Delete" onclick="delFunction(\'' + itemID + '\')">';
+        cell5.innerHTML = schItem.Location;
+        cell6.innerHTML = schItem.Description;
+        cell7.innerHTML = '<input type="button" value="Delete" onclick="delFunction(\'' + itemID + '\')">';
       }
     }
   }
 
 
 function generateCSV() {
-  csvString = "data:text/csv;charset=utf-8," + "Subject, Start Date, Start Time, End Date, End Time, All Day Event\n";
+  csvString = "data:text/csv;charset=utf-8," + "Subject, Start Date, Start Time, End Date, End Time, All Day Event, Location, Description\n";
   
   for(i=0; i<inputs.length; i++){
     var subject = inputs[i].Subject;
     var startTime = inputs[i].StartTime;
     var endTime = inputs[i].EndTime;
+    var location = inputs[i].Location;
+    var description = inputs[i].Description;
 
     var dates;
     switch(inputs[i].Weekday){
@@ -88,7 +96,7 @@ function generateCSV() {
     }
 
     for(j=0; j<dates.length; j++){
-      addString = subject + ',' + dates[j] + ',' + startTime + ',' + dates[j] + ',' + endTime + ', FALSE\n'
+      addString = subject + ',' + dates[j] + ',' + startTime + ',' + dates[j] + ',' + endTime + ', FALSE,' + location + ',' + description + '\n'
       csvString += addString;
     }
   }
